@@ -8,7 +8,7 @@ import os
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 # ✅ Localhost App Setup
-st.set_page_config(page_title="Local Solar Predictor", layout="wide")
+st.set_page_config(page_title="SolarCast-App-2025", layout="wide")
 
 # ===============================
 # 🔐 Password Authentication
@@ -24,7 +24,7 @@ if user_password != PASSWORD:
 # 🎨 App UI
 # ===============================
 st.title("☀️ LSTM NEXT 12-HOUR PREDICTOR")
-st.markdown("Upload your CSV file for local testing of our solar forecasting model.")
+st.markdown("Upload your CSV file for predictions using our solar forecasting model.")
 st.markdown("<h4 style='text-align: center; color: gray;'>FYP by <b>Stuart Ssenabulya</b> and <b>Juliet Tusabe</b></h4>", unsafe_allow_html=True)
 
 # ===============================
@@ -59,6 +59,8 @@ with col2:
     true_file = st.file_uploader("📂 Upload actual 12-hour values (optional)", type=["csv"])
 
 start_date = st.date_input("📅 Dataset Start Date", pd.to_datetime("2021-05-01"))
+end_date = st.date_input("📅 Dataset End Date", pd.to_datetime("2024-07-30"))
+
 prediction_date = st.date_input("📅 Prediction Date", pd.to_datetime("2024-07-31"))
 
 # ===============================
